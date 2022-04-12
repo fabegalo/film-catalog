@@ -19,11 +19,11 @@ app.use('/request-type', (req, res, next) => {
   next();
 });
 
-app.use('/public', express.static('public'));
-app.use('/public', serveIndex('public'));
+app.use('./public', express.static('public'));
+app.use('./public', serveIndex('public'));
 
-app.use('/dist', express.static('dist'));
-app.use('/dist', serveIndex('dist'));
+app.use('./dist', express.static('dist'));
+app.use('./dist', serveIndex('dist'));
 
 app.get('/', (req, res) => {
   res.send('Successful response RAIZ !.');
