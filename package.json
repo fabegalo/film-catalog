@@ -8,7 +8,8 @@
     "build": "tailwindcss build app.css -o public/style.css",
     "watch": "tailwindcss build app.css -o public/style.css -w",
     "build-css": "tailwindcss build style.css -o public/style.css",
-    "alpinjs-dev": "npx esbuild index.js --outfile=dist/bundle.js --bundle"
+    "alpinjs-dev": "npx esbuild index.js --outfile=dist/bundle.js --bundle --platform=node",
+    "vercel": "node ./index.js"
   },
   "repository": {
     "type": "git",
