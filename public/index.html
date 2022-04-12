@@ -1,0 +1,68 @@
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catalogo de Filmes</title>
+        <link rel="stylesheet" href="/public/style.css">
+        <script src="/dist/bundle.js" defer></script>
+        <script src="/public/js/register.js"></script>
+        <script src="/public/js/home.js"></script>
+    </head>
+
+    <body>
+        <!-- <div x-data="{ open: false}" class="text-center">
+            <button @click="open =! open" class="p-4 text-white bg-blue-600">Click</button>
+            <div x-show="open" class="mt-8">It working</div>
+        </div> -->
+
+        <div class="container mx-auto p-6">  
+            <h1 class="text-center font-bold text-2xl">Catalogo de Filmes</h1>
+
+            <div class="mt-16 mx-auto flex justify-center">
+                <a href="/public/views/register.html" @click="showMessage()" class="flex bg-green-500 rounded-full font-bold text-white px-4 py-4 transition duration-300 ease-in-out hover:bg-green-600 mr-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div x-data="home()" x-init="getFilms()" class="h-screen bg-white flex items-center justify-center">
+          <div class="grid grid-cols-6 gap-2 px-16">
+
+            <template x-for="(f, i) in films" x-key="i">
+              <template x-for="(film, index) in f" >  
+                <!-- Item 1 -->
+                <div class="flex flex-col gap-1">
+            
+                  <!-- Image -->
+                  <a href="" class="bg-purple-500">
+                    <img :src="film.url" class="hover:translate-x-1 hover:-translate-y-1 delay-50 duration-100" />
+                  </a>
+            
+                  <!-- Games Title -->
+                  <a href="#" class="hover:text-purple-500 text-gray-200 font-semibold" x-text="film.nome"> VALORANT </a>
+            
+                  <!-- Viewers -->
+                  <a href="#" class="hover:text-purple-500 text-sm text-gray-400 -mt-1" x-text="film.data"> 78.4K viewers </a>
+            
+                  <!-- Category Tags -->
+                  <div class="flex flex-row flex-wrap gap-2">
+                    <a href="#" class="hover:bg-gray-600 text-gray-300 text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full"> Shooter </a>
+                    <a href="#" class="hover:bg-gray-600 text-gray-300 text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full"> FPS </a>
+                  </div>      
+            
+                </div>
+                <div>
+                  <img :src="film.url">
+                  <span class="ml-3 text-base font-medium bg-red-500" x-text="film.nome"></span>
+                </div>
+              </template>
+            </template>
+        
+          </div>
+        </div>
+
+    </body>
+</html>
