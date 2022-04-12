@@ -25,7 +25,6 @@
     "alpinejs": "^3.9.6",
     "esbuild": "^0.14.34",
     "express": "^4.17.3",
-    "fs": "^0.0.1-security",
     "serve-index": "^1.9.1"
   },
   "devDependencies": {
