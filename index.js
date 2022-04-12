@@ -22,7 +22,7 @@ app.use('/dist', express.static('dist'));
 app.use('/dist', serveIndex('dist'));
 
 app.get('/', (req, res) => {
-  res.send('Successful response.');
+  res.send('Successful response RAIZ !.');
 });
 
 app.use(express.json());
