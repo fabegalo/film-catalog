@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const { readFileSync } = require('fs');
 const { join } = require('path');
+const path = require('path');
 //const file = readFileSync(join(__dirname, 'config', 'ci.yml'), 'utf8');
 
 const app = express();
@@ -19,14 +20,18 @@ app.use('/request-type', (req, res, next) => {
   next();
 });
 
-app.use('./public', express.static('public'));
-app.use('./public', serveIndex('public'));
+app.use('/public', express.static('public'));
+app.use('/public', serveIndex('public'));
 
-app.use('./dist', express.static('dist'));
-app.use('./dist', serveIndex('dist'));
+app.use('/dist', express.static('dist'));
+app.use('/dist', serveIndex('dist'));
 
 app.get('/', (req, res) => {
   res.send('Successful response RAIZ !.');
+});
+
+app.get('/teste', function(req, res) {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 app.use(express.json());
