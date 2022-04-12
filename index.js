@@ -29,7 +29,7 @@ app.use(express.json());
 
 app.post('/register', function (request, response) {
 
-  fs.readFile('films.json', 'utf8', function readFileCallback(err, data) {
+  fs.readFile('./films.json', 'utf8', function readFileCallback(err, data) {
     if (err) {
       console.log(err);
     } else {
@@ -41,7 +41,7 @@ app.post('/register', function (request, response) {
         data.films.push({ nome: film.nome, data: film.data, url: film.url });
       }
 
-      fs.writeFile("films.json", JSON.stringify(data), function (err) {
+      fs.writeFile("./films.json", JSON.stringify(data), function (err) {
         if (err) throw err;
         //console.log('complete');
       }
@@ -54,7 +54,7 @@ app.post('/register', function (request, response) {
 
 app.get('/films', function (request, response) {
 
-  fs.readFile('films.json', 'utf8', function readFileCallback(err, data) {
+  fs.readFile('./films.json', 'utf8', function readFileCallback(err, data) {
     if (err) {
       console.log(err);
     } else {
