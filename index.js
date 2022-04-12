@@ -3,6 +3,10 @@ const serveIndex = require('serve-index');
 
 const fs = require('fs');
 
+const { readFileSync } = require('fs');
+const { join } = require('path');
+//const file = readFileSync(join(__dirname, 'config', 'ci.yml'), 'utf8');
+
 const app = express();
 
 app.use((req, res, next) => {
@@ -54,15 +58,23 @@ app.post('/register', function (request, response) {
 
 app.get('/films', function (request, response) {
 
-  fs.readFile('./films.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data);
-      json = JSON.stringify(obj);
-      response.send(json);
-    }
-  });
+  var file = readFileSync(join(__dirname, './', 'films.json'), 'utf8')
+
+  obj = JSON.parse(file);
+  json = JSON.stringify(obj);
+  response.send(json);
+
+  //console.log(file);
+
+  // fs.readFile('./films.json', 'utf8', function readFileCallback(err, data) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     obj = JSON.parse(data);
+  //     json = JSON.stringify(obj);
+  //     response.send(json);
+  //   }
+  // });
 });
 
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));
