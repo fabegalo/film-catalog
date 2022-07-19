@@ -72,15 +72,15 @@ function register() {
         },
 
         saveFilm() {
+            var dataFormatada =  new Date(this.data).toLocaleString();
 
             if (this.validaCampos()) {
-                obj.film.push({ nome: this.filmName, data: this.data, url: this.imgSrc })
+                obj.film.push({ nome: this.filmName, data: dataFormatada, url: this.imgSrc })
 
                 json = JSON.stringify(obj); //convert it back to json
 
                 this.createFilm(json);
             }
-
         },
 
         async createFilm(json) {

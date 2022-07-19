@@ -63,6 +63,32 @@ app.post('/register', function (request, response) {
   response.send(request.body);
 });
 
+app.post('/delete', function (request, response) {
+
+  fs.readFile('./films.json', 'utf8', function readFileCallback(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      filmId = request.body.id;
+
+      data = JSON.parse(data);
+
+      if (data.films != undefined) {
+        //data.films.push({ nome: film.nome, data: film.data, url: film.url });
+        data.films.splice(filmId, 1);
+      }
+
+      fs.writeFile("./films.json", JSON.stringify(data), function (err) {
+        if (err) throw err;
+        //console.log('complete');
+      }
+      );
+    }
+  });
+
+  response.send(request.body);
+});
+
 app.get('/films', function (request, response) {
 
   var file = readFileSync(join(__dirname, './', 'films.json'), 'utf8')

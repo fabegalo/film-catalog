@@ -76,20 +76,19 @@
                 </a>
 
                 <!-- Games Title -->
-                <a href="#" class="hover:text-purple-500 text-black font-semibold" x-text="film.nome"> VALORANT </a>
+                <a href="#" class="hover:text-purple-500 text-black font-semibold" x-text="film.nome"></a>
 
                 <!-- Viewers -->
-                <a href="#" class="hover:text-purple-500 text-sm text-gray-400 -mt-1" x-text="film.data"> 78.4K viewers
-                </a>
+                <a href="#" class="hover:text-purple-500 text-sm text-gray-400 -mt-1" x-text="film.data"></a>
 
                 <!-- Category Tags -->
-                <div class="flex flex-row flex-wrap gap-2">
+                <div @click="deleteFilm(`${index}`)" class="flex flex-row flex-wrap gap-2">
                   <a href="#"
-                    class="hover:bg-gray-600 text-gray-300 text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full">
-                    Shooter </a>
+                    class="hover:bg-red-600 text-red-300 text-xs font-semibold bg-red-700 px-2 py-1 rounded-full">
+                    Remover </a>
                   <a href="#"
-                    class="hover:bg-gray-600 text-gray-300 text-xs font-semibold bg-gray-700 px-2 py-1 rounded-full">
-                    FPS
+                    class="hover:bg-green-600 text-green-300 text-xs font-semibold bg-green-700 px-2 py-1 rounded-full">
+                    Finalizar
                   </a>
                 </div>
 
@@ -106,7 +105,7 @@
 
       <p class="text-center p-4 text-gray-600 mt-10">
         Created by
-        <a class="border-b text-blue-500" href="https://github.com/fabegalo" target="_blank">@fabegalo</a>.
+        <a href="https://github.com/fabegalo" class="border-b text-blue-500" target="_blank">@fabegalo</a>.
       </p>
     </div>
   </div>
