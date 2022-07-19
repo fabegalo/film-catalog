@@ -9,7 +9,8 @@
     "watch": "tailwindcss build app.css -o public/style.css -w",
     "build-css": "tailwindcss build style.css -o public/style.css",
     "alpinjs-dev": "npx esbuild app.js --outfile=dist/bundle.js --bundle",
-    "vercel": "npm run alpinjs-dev && node ./index.js"
+    "vercel": "npm run alpinjs-dev && node ./index.js",
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",
