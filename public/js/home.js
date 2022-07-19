@@ -5,7 +5,7 @@ function home() {
 
         async getFilms() {
 
-            this.films = await (await fetch('http://localhost:3000/films')).json();
+            this.films = await (await fetch('/films')).json();
 
             console.log(this.films);
         },
