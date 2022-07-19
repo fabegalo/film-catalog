@@ -84,7 +84,7 @@ function register() {
         },
 
         async createFilm(json) {
-            var post = await (await fetch('http://localhost:3000/register', {
+            var post = await (await fetch('/register', {
                 method: 'POST',
                 body: json,
                 headers: {
