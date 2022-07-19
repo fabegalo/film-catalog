@@ -91,6 +91,20 @@ app.post('/delete', function (request, response) {
 
 app.get('/films', function (request, response) {
 
+  var folder = './films.json';
+
+  try {
+    if (!fs.existsSync(folder)) {
+      console.log('CRIA ARQUIVO!');
+      fs.writeFile('films.json', '{"films": []}', function (err) {
+        if (err) throw err;
+        console.log('File is created successfully.');
+      });
+    }
+  } catch(err) {
+    console.error(err)
+  }
+
   var file = readFileSync(join(__dirname, './', 'films.json'), 'utf8')
 
   obj = JSON.parse(file);
